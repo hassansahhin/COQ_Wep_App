@@ -1,0 +1,129 @@
+
+    <!DOCTYPE html>
+<html>
+<head>
+<title>Cost Of Quality Report</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type ="text/css" href ="{{ url_for('static', filename='main.css') }}"
+
+<style>
+
+</style>
+</head>
+<body class="w3-content" style="max-width:1200px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>SIAC</b></h3>
+    <h3 class="w3-wide">Quality Department</h3>
+  </div>
+  
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="{{ url_for('home') }}" class="w3-bar-item w3-button">الصفحة الرئيسية</a>
+    <a href="{{ url_for('BSC') }}" class="w3-bar-item w3-button">مؤشرات الاداء المتوازن</a>
+    <a href="{{ url_for('quality') }}" class="w3-bar-item w3-button">ملاحظات ادارة الجودة</a>
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      مشاريع الشركة الجارى تنفيذها <i class="fa fa-caret-down"></i>
+    </a>
+    
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="{{ url_for('faisal') }}" class="w3-bar-item w3-button">مشروع بنك فيصل الاسلامى</a>
+      <a href="{{ url_for('nbe') }}" class="w3-bar-item w3-button">مشروع البنك الاهلى</a>
+      <a href="{{ url_for('qnb') }}" class="w3-bar-item w3-button">مشروع بنك قطر الوطنى</a>
+      <a href="{{ url_for('ld07') }}" class="w3-bar-item w3-button">مشروع ابراج العلمين LD07</a>
+      <a href="{{ url_for('ld04') }}" class="w3-bar-item w3-button">مشروع ابراج العلمين LD04</a>
+      <a href="{{ url_for('japan') }}" class="w3-bar-item w3-button">مشروع ألجامعة اليابانية</a>
+      <a href="{{ url_for('cbd') }}" class="w3-bar-item w3-button">مشروع ابراج العاصمة الادارية</a>
+    </div>
+
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide"><b>SIAC</b></div>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-right:250px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <h3 class="w3-center"> <b>تقرير تكلفة إعادة العمل نتيجة ضعف جودة المنتج بتاريخ 31 مارس 2022</b></h3>
+    <p class="w3-right">
+    </p>
+  </header>
+
+  <div>
+    {% block content %}{% endblock content %}
+  </div>
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+    
+    <div class="w3-row-padding">
+      <div class="w3-col s4">
+        <h4>Contact</h4>
+        <p><i class="fa fa-fw fa-map-marker"></i>الشركة الهندسية للصناعات و التشييد (سياك)</p>
+        <p><i class="fa fa-fw fa-phone"></i> تليفون<br> +202- 24182992 /3/4<br> داخلى 147</p>
+        <p><i class="fa fa-fw fa-envelope"></i>quality@siac.com.eg</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="w3-black w3-center w3-padding-24">
+  SIAC - Quality Department 2022
+  </div>
+
+  <!-- End page content -->
+</div>
+
+
+
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+
+</script>
+
+</body>
+</html>

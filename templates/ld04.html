@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+    <h3 class = "contentH splitting">{{ data.ld04.project_name }}</h3>
+    <h3 class = "contentH splitting"> ملاحظات عامة على اداء المشروع</h3>
+    </div>
+    {%for item in data.notes.ld04%}
+    <div>
+        <div>
+            <div class ="animation">
+                <div>
+                    <h3 style = "text-align:center; color:white">{{item}}</h3>
+                </div>
+            </div>
+                <p class="contentP"> {{data['notes']['ld04'][item]}}</p>
+        </div>
+    </div>
+    {%endfor%}
+      
+   
+
+    <div>
+        {{ data.ld04.html_fig }}
+    </div>
+
+
+{% endblock content %}
