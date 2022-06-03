@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+    <h3 class = "contentH splitting">{{ data.cbd.project_name }}</h3>
+    <h3 class = "contentH splitting"> ملاحظات عامة على اداء المشروع</h3>
+    </div>
+    {%for item in data.notes.cbd%}
+    <div>
+        <div>
+            <div class ="animation">
+                <div>
+                    <h3 style = "text-align:center; color:white">{{item}}</h3>
+                </div>
+            </div>
+                <p class="contentP"> {{data['notes']['cbd'][item]}}</p>
+        </div>
+    </div>
+    {%endfor%}
+      
+   
+
+    <div>
+        {{ data.cbd.html_fig }}
+    </div>
+
+
+{% endblock content %}
