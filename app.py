@@ -1,6 +1,6 @@
 import pickle
 from flask import Flask , render_template , url_for
-from flask_ngrok import run_with_ngrok
+#from flask_ngrok import run_with_ngrok
 
 
 
@@ -11,7 +11,7 @@ with open('data.pickle', 'rb') as handle:
 
 #intialize the App
 app=Flask(__name__,template_folder='templates' ,static_folder='static')
-run_with_ngrok(app)
+#run_with_ngrok(app)
 
 
 #routs
